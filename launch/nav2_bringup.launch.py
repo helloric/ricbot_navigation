@@ -18,23 +18,22 @@ def launch_setup(context, *args, **kwargs):
     # robot name, should be black, blue, green or eve
     robot_name = LaunchConfiguration('robot_name').perform(context)
 
-    map_yaml_path = find_pkg_share(
-        'ricbot_navigation') + f'/maps/{location_name}_map.yaml'
-
-    # TODO: check, if we need to start the livecycle manager?!
+    map_yaml_path = find_pkg_share('ricbot_navigation') + \
+        f'/maps/{location_name}_map.yaml'
 
     # Nav2 Bringup
     launch_description.append(IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [find_pkg_share('nav2_bringup'), '/launch/bringup_launch.py']),
+        PythonLaunchDescriptionSource([
+            find_pkg_share('nav2_bringup'),
+            '/launch/bringup_launch.py'
+        ]),
         launch_arguments={
             'namespace': robot_name,
+            'use_namespace': 'True',
             'map': map_yaml_path,
             'slam': 'False',
             'autostart': LaunchConfiguration('autostart').perform(context),
-            'use_sim_time': LaunchConfiguration('simulation').perform(context),
-            #'params_file': params_file,
-            #'default_bt_xml_filename': bt_xml_file
+            'use_sim_time': LaunchConfiguration('simulation').perform(context)
         }.items()
     ))
 
@@ -46,6 +45,6 @@ def generate_launch_description():
         DeclareLaunchArgument("location_name", default_value="rh1_eg"),
         DeclareLaunchArgument("simulation",    default_value="true"),
         DeclareLaunchArgument("autostart",     default_value="true"),
-        DeclareLaunchArgument("robot_name"),
+        DeclareLaunchArgument("robot_name",    default_value="eve"),
         OpaqueFunction(function=launch_setup)
     ])
