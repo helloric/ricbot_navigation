@@ -5,7 +5,7 @@ project(ricbot_navigation)
 find_package(ament_cmake REQUIRED)
 
 install(DIRECTORY
-  launch maps
+  launch maps config
   DESTINATION share/${PROJECT_NAME}
 )
 

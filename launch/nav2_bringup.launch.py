@@ -22,6 +22,8 @@ def launch_setup(context, *args, **kwargs):
         f'/maps/{location_name}_map.yaml'
 
     # Nav2 Bringup
+    params_file = find_pkg_share('ricbot_navigation') +\
+        f'/config/nav2_params.yaml'
     # TODO: namespace
     launch_description.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -33,6 +35,8 @@ def launch_setup(context, *args, **kwargs):
             # 'use_namespace': 'True',
             'map': map_yaml_path,
             'slam': 'False',
+            'map_subscribe_transient_local': 'True',
+            'params_file': params_file,
             'autostart': LaunchConfiguration('autostart').perform(context),
             'use_sim_time': LaunchConfiguration('simulation').perform(context)
         }.items()
