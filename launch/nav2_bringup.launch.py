@@ -22,14 +22,15 @@ def launch_setup(context, *args, **kwargs):
         f'/maps/{location_name}_map.yaml'
 
     # Nav2 Bringup
+    # TODO: namespace
     launch_description.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             find_pkg_share('nav2_bringup'),
             '/launch/bringup_launch.py'
         ]),
         launch_arguments={
-            'namespace': robot_name,
-            'use_namespace': 'True',
+            # 'namespace': robot_name,
+            # 'use_namespace': 'True',
             'map': map_yaml_path,
             'slam': 'False',
             'autostart': LaunchConfiguration('autostart').perform(context),
