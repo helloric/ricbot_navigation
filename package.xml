@@ -10,9 +10,17 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <depend>mapdesc_ros</depend>
+  <depend>mapdesc_msgs</depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <exec_depend>rclpy</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
 
   <export>
-    <build_type>ament_cmake</build_type>
+    <build_type>ament_python</build_type>
   </export>
 </package>
