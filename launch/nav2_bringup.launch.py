@@ -15,16 +15,17 @@ def launch_setup(context, *args, **kwargs):
     # location of the robot, defaults to "rh1_eg"
     location_name = LaunchConfiguration('location_name').perform(context)
 
+    # TODO: generate namespace using robot name
     # robot name, should be black, blue, green or eve
-    robot_name = LaunchConfiguration('robot_name').perform(context)
+    # robot_name = LaunchConfiguration('robot_name').perform(context)
 
     map_yaml_path = find_pkg_share('ricbot_navigation') + \
         f'/maps/{location_name}_map.yaml'
 
     # Nav2 Bringup
-    params_file = find_pkg_share('ricbot_navigation') +\
-        f'/config/nav2_params.yaml'
-    # TODO: namespace
+    params_file = find_pkg_share('ricbot_navigation') +  \
+        '/config/nav2_params.yaml'
+
     launch_description.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             find_pkg_share('nav2_bringup'),
