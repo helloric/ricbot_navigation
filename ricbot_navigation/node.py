@@ -19,7 +19,7 @@ class NavNode(Node):
         super().__init__('ricbot_navigation_node')
         self.nav = BasicNavigator()
         self.marker_cli = self.create_client(
-            ListMarker, 'list_marker')
+            ListMarker, 'mapdesc/marker/list')
 
     def _create_pose_stamped(self, basic_pose: Pose) -> PoseStamped:
         pose = PoseStamped()
