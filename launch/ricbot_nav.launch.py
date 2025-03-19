@@ -42,6 +42,15 @@ def launch_setup(context, *args, **kwargs):
             )
         ]))
 
+    launch_description.append(LaunchDescription([
+            Node(
+                package='ricbot_navigation',
+                executable='marker_info_node',
+                name='marker_info_node',
+                parameters=[]
+            )
+        ]))
+
     return launch_description
 
 

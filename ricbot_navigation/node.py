@@ -18,8 +18,9 @@ class NavNode(Node):
     def __init__(self):
         super().__init__('ricbot_navigation_node')
         self.nav = BasicNavigator()
-        self.marker_cli = self.create_client(
-            ListMarker, 'mapdesc/marker/list')
+        self.marker_cli = self.create_client(ListMarker, 'mapdesc/marker/list')
+        self.marker_data = []  # Store markers data
+        self.go_to_marker_srv = self.create_service(GoToMarker, 'go_to_marker', self.handle_go_to_marker)  # Create custom service
 
     def _create_pose_stamped(self, basic_pose: Pose) -> PoseStamped:
         pose = PoseStamped()
@@ -53,14 +54,6 @@ class NavNode(Node):
         self.get_logger().info(f'Received {len(_marker)} marker 👍!')
         if len(_marker) == 0:
             return
-        while True:
-            for marker in _marker:
-                self.get_logger().info(
-                    f"Will move to waypoint {marker.name} - "
-                    f"x: {marker.pose.position.x} "
-                    f"y: {marker.pose.position.y}")
-                self.move_to_waypoint(
-                    self._create_pose_stamped(marker.pose))
 
     def move_to_waypoint(self, pose: PoseStamped):
         nav = self.nav
@@ -71,11 +64,33 @@ class NavNode(Node):
                 # feedback = nav.getFeedback()
                 # self.get_logger().info(feedback)
             result = nav.getResult()
-            print(result)
-            # self.get_logger().info(result)
+            self.get_logger().info(f'Navigation result: {result}')
         except KeyboardInterrupt:
             self.get_logger().info("Keyboard interrupt!")
             nav.cancelTask()
+
+    def handle_go_to_marker(self, request, response):
+        marker_name = request.marker_name
+        if marker_name == "route":
+            for marker in self.marker_data:
+                self.get_logger().info(f"Moving to marker {marker.name} at position x: {marker.pose.position.x} y: {marker.pose.position.y}")
+                self.move_to_waypoint(self._create_pose_stamped(marker.pose))
+            response.success = True
+            response.message = "Successfully navigated the entire route"
+            return response
+        else:
+            for marker in self.marker_data:
+                if marker.name == marker_name:
+                    self.get_logger().info(f"Moving to marker {marker_name} at position x: {marker.pose.position.x} y: {marker.pose.position.y}")
+                    self.move_to_waypoint(self._create_pose_stamped(marker.pose))
+                    response.success = True
+                    response.message = f"Successfully moved to {marker_name}"
+                    return response
+            
+            self.get_logger().info(f"Marker {marker_name} not found.")
+            response.success = False
+            response.message = f"Marker {marker_name} not found."
+            return response
 
     def spin(self):
         while rclpy.ok():
