@@ -20,7 +20,9 @@ class NavNode(Node):
         self.nav = BasicNavigator()
         self.marker_cli = self.create_client(ListMarker, 'mapdesc/marker/list')
         self.marker_data = []  # Store markers data
-        self.go_to_marker_srv = self.create_service(GoToMarker, 'go_to_marker', self.handle_go_to_marker)  # Create custom service
+        # TODO: add GoToMarker from ricbot_msgs again!
+        # self.go_to_marker_srv = self.create_service(
+        #       GoToMarker, 'go_to_marker', self.handle_go_to_marker)
 
     def _create_pose_stamped(self, basic_pose: Pose) -> PoseStamped:
         pose = PoseStamped()
@@ -52,8 +54,6 @@ class NavNode(Node):
     def get_marker_callback(self, future: Future):
         _marker = future.result().marker
         self.get_logger().info(f'Received {len(_marker)} marker 👍!')
-        if len(_marker) == 0:
-            return
 
     def move_to_waypoint(self, pose: PoseStamped):
         nav = self.nav
@@ -69,28 +69,35 @@ class NavNode(Node):
             self.get_logger().info("Keyboard interrupt!")
             nav.cancelTask()
 
-    def handle_go_to_marker(self, request, response):
-        marker_name = request.marker_name
-        if marker_name == "route":
-            for marker in self.marker_data:
-                self.get_logger().info(f"Moving to marker {marker.name} at position x: {marker.pose.position.x} y: {marker.pose.position.y}")
-                self.move_to_waypoint(self._create_pose_stamped(marker.pose))
-            response.success = True
-            response.message = "Successfully navigated the entire route"
-            return response
-        else:
-            for marker in self.marker_data:
-                if marker.name == marker_name:
-                    self.get_logger().info(f"Moving to marker {marker_name} at position x: {marker.pose.position.x} y: {marker.pose.position.y}")
-                    self.move_to_waypoint(self._create_pose_stamped(marker.pose))
-                    response.success = True
-                    response.message = f"Successfully moved to {marker_name}"
-                    return response
-            
-            self.get_logger().info(f"Marker {marker_name} not found.")
-            response.success = False
-            response.message = f"Marker {marker_name} not found."
-            return response
+    # def handle_go_to_marker(self, request, response):
+    #     marker_name = request.marker_name
+    #     if marker_name == "route":
+    #         for marker in self.marker_data:
+    #             self.get_logger().info(
+    #                 f"Moving to marker {marker.name} at position "
+    #                 f"x: {marker.pose.position.x} "
+    #                 f"y: {marker.pose.position.y}")
+    #             self.move_to_waypoint(self._create_pose_stamped(marker.pose))
+    #         response.success = True
+    #         response.message = "Successfully navigated the entire route"
+    #         return response
+    #     else:
+    #         for marker in self.marker_data:
+    #             if marker.name == marker_name:
+    #             self.get_logger().info(
+    #                     f"Moving to marker {marker.name} at position "
+    #                     f"x: {marker.pose.position.x} "
+    #                     f"y: {marker.pose.position.y}")
+    #                 self.move_to_waypoint(
+    #                     self._create_pose_stamped(marker.pose))
+    #                 response.success = True
+    #                 response.message = f"Successfully moved to {marker_name}"
+    #                 return response
+
+    #         self.get_logger().info(f"Marker {marker_name} not found.")
+    #         response.success = False
+    #         response.message = f"Marker {marker_name} not found."
+    #         return response
 
     def spin(self):
         while rclpy.ok():

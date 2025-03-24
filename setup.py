@@ -33,7 +33,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'ricbot_navigation_node = ricbot_navigation.node:main',
+                'ricbot_navigation_node = ricbot_navigation.nav_node:main',
+                'marker_info_node = ricbot_navigation.marker_info:main',
         ],
     },
 )
