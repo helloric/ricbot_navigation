@@ -6,14 +6,21 @@ from rclpy.task import Future
 from visualization_msgs.msg import Marker
 
 from geometry_msgs.msg import Pose, PoseStamped
-from mapdesc_msgs.srv import ListMarker
+from mapdesc_msgs.srv import MapMarkerList
+
+
+PREFIX = 'mapdesc'
+MAP_MARKER_LIST = f'{PREFIX}/marker/list'
 
 
 class MarkerInfoNode(Node):
     def __init__(self):
         super().__init__('ricbot_navigation_marker_node')
-        self.marker_cli = self.create_client(ListMarker, 'mapdesc/marker/list')
-        self.publisher_ = self.create_publisher(Marker, 'helloric_marker', 10)
+        self.declare_parameter('map_name', 'rh1_eg')
+        self.marker_cli = self.create_client(
+            MapMarkerList, MAP_MARKER_LIST)
+        self.publisher_ = self.create_publisher(
+            Marker, 'helloric_marker', 10)
         # TODO: rewrite to use ROSCrud, and only update on update message,
         # do not repeat all the time
         self.timer = self.create_timer(5.0, self.timer_callback)
@@ -21,17 +28,20 @@ class MarkerInfoNode(Node):
     def timer_callback(self):
         self.get_marker()
 
-    def wait_for_service(self, cli):
+    def wait_for_service(self, cli, name):
         for _try in range(10):
             if cli.wait_for_service(timeout_sec=.5):
-                self.get_logger().info('Service is available 👍!')
+                self.get_logger().info(
+                    f'Service {name} is available!')
                 return True
-            self.get_logger().info('service not available, waiting...')
+            self.get_logger().info(
+                f'Service {name} not available, waiting...')
         return False
 
     def get_marker(self):
-        self.wait_for_service(self.marker_cli)
-        request = ListMarker.Request()
+        map_name = str(self.get_parameter('map_name').value)
+        self.wait_for_service(self.marker_cli, MAP_MARKER_LIST)
+        request = MapMarkerList.Request(name=map_name)
         future = self.marker_cli.call_async(request)
         future.add_done_callback(self.get_marker_callback)
 

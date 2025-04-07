@@ -11,14 +11,16 @@ from geometry_msgs.msg import Pose, PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator
 
 # mapdesc_msgs
-from mapdesc_msgs.srv import ListMarker
+from mapdesc_msgs.srv import MapMarkerList
 
 
 class NavNode(Node):
     def __init__(self):
         super().__init__('ricbot_navigation_node')
+        self.declare_parameter('map_name', 'rh1_eg')
         self.nav = BasicNavigator()
-        self.marker_cli = self.create_client(ListMarker, 'mapdesc/marker/list')
+        self.marker_cli = self.create_client(
+            MapMarkerList, 'mapdesc/marker/list')
         self.marker_data = []  # Store markers data
         # TODO: add GoToMarker from ricbot_msgs again!
         # self.go_to_marker_srv = self.create_service(
@@ -46,8 +48,9 @@ class NavNode(Node):
 
     def get_marker(self):
         # request marker from service
+        map_name = str(self.get_parameter('map_name').value)
         self.wait_for_service(self.marker_cli)
-        request = ListMarker.Request()
+        request = MapMarkerList.Request(name=map_name)
         future = self.marker_cli.call_async(request)
         future.add_done_callback(self.get_marker_callback)
 
