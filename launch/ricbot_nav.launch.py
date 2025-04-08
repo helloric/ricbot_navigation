@@ -55,7 +55,7 @@ def launch_setup(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    map_yaml = str(Path('/map_data') / 'rh1_a002.yml')
+    map_yaml = str(Path('/map_data') / 'rh1_eg.yml')
     return LaunchDescription([
         DeclareLaunchArgument(
             "robot_name", default_value="eve"),

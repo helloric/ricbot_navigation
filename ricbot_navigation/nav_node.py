@@ -14,13 +14,17 @@ from nav2_simple_commander.robot_navigator import BasicNavigator
 from mapdesc_msgs.srv import MapMarkerList
 
 
+PREFIX = 'mapdesc'
+MAP_MARKER_LIST = f'{PREFIX}/marker/list'
+
+
 class NavNode(Node):
     def __init__(self):
         super().__init__('ricbot_navigation_node')
         self.declare_parameter('map_name', 'rh1_eg')
         self.nav = BasicNavigator()
         self.marker_cli = self.create_client(
-            MapMarkerList, 'mapdesc/marker/list')
+            MapMarkerList, MAP_MARKER_LIST)
         self.marker_data = []  # Store markers data
         # TODO: add GoToMarker from ricbot_msgs again!
         # self.go_to_marker_srv = self.create_service(
@@ -33,13 +37,14 @@ class NavNode(Node):
         pose.pose = basic_pose
         return pose
 
-    def wait_for_service(self, cli):
-        """wait for a service to become available."""
+    def wait_for_service(self, cli, name):
         for _try in range(10):
             if cli.wait_for_service(timeout_sec=.5):
-                self.get_logger().info('Service is available 👍!')
+                self.get_logger().info(
+                    f'Service {name} is available!')
                 return True
-            self.get_logger().info('service not available, waiting...')
+            self.get_logger().info(
+                f'Service {name} not available, waiting...')
         return False
 
     def set_initial_pose(self):
@@ -49,14 +54,14 @@ class NavNode(Node):
     def get_marker(self):
         # request marker from service
         map_name = str(self.get_parameter('map_name').value)
-        self.wait_for_service(self.marker_cli)
+        self.wait_for_service(self.marker_cli, MAP_MARKER_LIST)
         request = MapMarkerList.Request(name=map_name)
         future = self.marker_cli.call_async(request)
         future.add_done_callback(self.get_marker_callback)
 
     def get_marker_callback(self, future: Future):
         _marker = future.result().marker
-        self.get_logger().info(f'Received {len(_marker)} marker 👍!')
+        self.get_logger().info(f'Received {len(_marker)} marker.')
 
     def move_to_waypoint(self, pose: PoseStamped):
         nav = self.nav
