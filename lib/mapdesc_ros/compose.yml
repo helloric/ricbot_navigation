@@ -1,0 +1,31 @@
+services:
+  mapdesc_ros:
+    image: d-reg.hb.dfki.de/robot-config/mapdesc_ros:humble-0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ROS_DISTRO: humble
+
+  mapdesc_ros_dev:
+    # custom Dockerfile that installs without moving files 
+    # (so we can easily overwrite them from volumes for easier 
+    #  development with Dev Container)
+    build:
+      context: .
+      dockerfile: Dockerfile_dev
+      args:
+        ROS_DISTRO: humble
+    volumes:
+      - ./mapdesc:/opt/mapdesc:rw
+      - ./mapdesc_ros:/root/colcon_ws/src/mapdesc_ros:rw
+      - ./mapdesc_msgs:/root/colcon_ws/src/mapdesc_msgs:rw
+      - ./run_tests.bash:/root/colcon_ws/run_tests.bash:rw
+
+  ros_with_pip:
+    image: d-reg.hb.dfki.de/robot-config/ros-pip-pytest:humble-0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile-ros-pip-pytest
+      args:
+        ROS_DISTRO: humble

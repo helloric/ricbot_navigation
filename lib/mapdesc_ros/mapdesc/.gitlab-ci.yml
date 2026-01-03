@@ -1,0 +1,35 @@
+image: hdgigante/python-opencv:4.9.0-alpine
+
+stages:
+- build
+- test
+- deploy
+
+mapdesc build:
+  stage: build
+  script:
+    - pip3 install .
+
+mapdesc test:
+  stage: test
+  script:
+    - pip3 install .
+    - pip3 install pytest coverage
+    - python3 -m pytest
+    - coverage run --source mapdesc --omit=mapdesc/cli.py -m pytest .
+    - coverage report -m
+    - coverage html
+  artifacts:
+    paths:
+      - htmlcov/
+
+software_catalogue_entry:
+  image: d-reg.hb.dfki.de:5000/ubuntu:overview_generator
+  stage: deploy
+  script:
+  - apt update
+  - apt install -y wget
+  - wget http://bob.dfki.uni-bremen.de/software_overview/generate.sh
+  - sh generate.sh $CI_PROJECT_NAMESPACE $CI_PROJECT_NAME $CI_PROJECT_URL
+  only:
+  - main

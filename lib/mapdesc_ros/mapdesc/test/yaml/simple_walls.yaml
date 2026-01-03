@@ -1,0 +1,27 @@
+name: "Simple Walls"
+description: "A simple room with 4 walls and an entrance for a door"
+wall:
+  - type: "box"
+    data:
+      pose:
+        position: [-10, 0, 1.5]
+        orientation: [0, 0, 0] # x y z - euler
+      size: [0.2, 20, 3]
+  - type: "box"
+    data:
+      pose:
+        position: [10, 0, 1.5]
+        orientation: [0, 0, 0, 1] # x y z w - quaternion
+      size: [0.2, 20, 3]
+  - type: "box"
+    data:
+      pose:
+        position: [0, 10, 1.5]
+        orientation: [0, 0, 0.707, 0.707]
+      size: [0.2, 20, 3]
+  - type: "box"
+    data:
+      pose:
+        position: [0, -10, 1.5]
+        orientation: [0, 0, 0.707, 0.707]
+      size: [0.2, 20, 3]
