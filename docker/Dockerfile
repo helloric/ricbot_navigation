@@ -19,9 +19,18 @@ COPY ./docker/entrypoint.bash /entrypoint.bash
 RUN chmod +x /entrypoint.bash
 ENTRYPOINT ["/entrypoint.bash"]
 
+
+
 COPY ./ ${COLCON_WS_SRC}/ricbot_navigation
 COPY ./lib/mapdesc_ros ${COLCON_WS_SRC}/mapdesc_ros
 
+##### mapdesc installation - this should be done automatically with colcon if deps are defined correctly, but for some reason it is not
+# RUN pip3 install -r  ${COLCON_WS_SRC}/mapdesc_ros/mapdesc/requirements.txt 
+
+# COPY ./lib/mapdesc_ros/mapdesc /opt/mapdesc
+# WORKDIR /opt/mapdesc
+# RUN pip3 install .
+#####
 
 RUN cd ${COLCON_WS}\
     && . /opt/ros/${ROS_DISTRO}/setup.sh\

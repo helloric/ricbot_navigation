@@ -17,7 +17,7 @@ setup(
             os.path.join('share', package_name, 'launch'),
             glob(os.path.join('launch', '*.launch.py'))),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'mapdesc'],
     requires=['mapdesc'],
     zip_safe=True,
     maintainer='abresser',
