@@ -1,0 +1,15 @@
+ARG ROS_DISTRO
+FROM ros:${ROS_DISTRO}
+
+RUN apt-get update -qq \
+    && apt-get install -y \
+    python3-pip \
+    python3-opencv \
+    ros-${ROS_DISTRO}-std-msgs \
+    ros-${ROS_DISTRO}-geometry-msgs \
+    ros-${ROS_DISTRO}-diagnostic-msgs \
+    ament-cmake \
+    && rm -rf /var/lib/apt/lists/*
+
+# we need to upgrade flake8 to supress a deprecation warning.
+RUN pip3 install --upgrade flake8 pytest-cov opencv-python

@@ -1,0 +1,6 @@
+[submodule "mapdesc"]
+	path = mapdesc
+	url = ../mapdesc
+[submodule "mapdesc_msgs"]
+	path = mapdesc_msgs
+	url = ../mapdesc_msgs

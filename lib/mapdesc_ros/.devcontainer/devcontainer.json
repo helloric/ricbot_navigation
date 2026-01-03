@@ -1,0 +1,20 @@
+{
+    "name": "MapDesc",
+    "workspaceFolder": "/root/colcon_ws",
+    "dockerComposeFile": "../compose.yml",
+    "overrideCommand": true,
+    "service": "mapdesc_ros_dev",
+    "customizations":{
+        "vscode": {
+            "extensions": [
+                "MermaidChart.vscode-mermaid-chart",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.flake8",
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "twxs.cmake"
+            ]
+        }
+    }
+}

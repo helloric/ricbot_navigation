@@ -1,0 +1,15 @@
+# ROSCrud is a Tool to generate ROS 2 services to Create Read Update and Delete
+# data, insprired by RESTful web services
+# see https://en.wikipedia.org/wiki/Create,_read,_update_and_delete for details
+- name: map
+  class_name: Map
+  id_name: name  # equals the file name
+  package_name: mapdesc_ros
+  package_msgs_name: mapdesc_msgs
+  attributes:
+    - marker
+    - area
+    - wall
+    - path
+    - ext
+  # TODO: lanes - create getter/setter to set lane_nodes and lane_edges directly

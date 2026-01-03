@@ -1,0 +1,124 @@
+{
+  name: simple_map_marker,
+  description: A simple room with 4 walls and a big entrance.,
+  marker:
+    [
+      {
+          name: center_marker,
+          pose: { position: [ 0, 0, 0 ], orientation: [ 0, 0, 0, 1 ] },
+          color: [ 255, 50, 50 ],
+          radius: 0.1
+        },
+      {
+          name: north_west,
+          radius: 0.2,
+          color: [ 255, 0, 0 ],
+          pose:
+            {
+              position: [ -6.788245960015084, 7.485528022376871, 0 ],
+              orientation: [ 0, 0, 0, 1 ]
+            }
+        },
+      {
+          name: north_east,
+          radius: 0.2,
+          color: [ 255, 0, 0 ],
+          pose:
+            {
+              position: [ 7.239428524401198, 8.223826737355047, 0 ],
+              orientation: [ 0, 0, 0, 1 ]
+            }
+        },
+      {
+          name: south_east,
+          radius: 0.2,
+          color: [ 255, 0, 0 ],
+          pose:
+            {
+              position: [ 6.829261498693715, -7.936709309296662, 0 ],
+              orientation: [ 0, 0, 0, 1 ]
+            }
+        }
+    ],
+  area:
+    [
+      {
+          area_type: demonstation_area,
+          color: [ 255, 200, 200 ],
+          type: mesh,
+          data:
+            {
+              polygons: [ [ -7, -5 ], [ -2, -5 ], [ -2, 5 ], [ -7, 5 ] ],
+              pose: { orientation: [ 0, 0, 0, 1 ], position: [ -1, -1, 0 ] },
+              size: [ 1, 1, 1 ]
+            },
+          name: ""
+        },
+      {
+          area_type: demonstation_area,
+          color: [ 100, 200, 200 ],
+          type: mesh,
+          data:
+            {
+              polygons: [ [ 7, -5 ], [ 4.5, -7 ], [ 2, -5 ], [ 2, 5 ], [ 4.5, 7 ], [ 7, 5 ] ],
+              pose: { orientation: [ 0, 0, 0, 1 ], position: [ 1, 1, 0 ] },
+              size: [ 1, 1, 1 ]
+            },
+          name: ""
+        },
+      {
+          area_type: outside,
+          name: outside,
+          type: box,
+          data:
+            {
+              pose: { position: [ 0, 17, 0 ], orientation: [ 0, 0, 0, 1 ] },
+              size: [ 12, 10, 2 ]
+            },
+          color: [ 100, 200, 170 ]
+        }
+    ],
+  wall:
+    [
+      {
+          type: box,
+          data:
+            {
+              pose: { position: [ 10, 0, 1.5 ], orientation: [ 0, 0, 0, 1 ] },
+              size: [ 0.2, 20, 3 ]
+            }
+        },
+      {
+          type: box,
+          data:
+            {
+              pose: { position: [ -10, 0, 1.5 ], orientation: [ 0, 0, 0, 1 ] },
+              size: [ 0.2, 20, 3 ]
+            }
+        },
+      {
+          type: box,
+          data:
+            {
+              pose: { position: [ 0, 10, 1.5 ], orientation: [ 0, 0, 0.7071068, 0.7071068 ] },
+              size: [ 0.2, 20, 3 ]
+            }
+        },
+      {
+          type: box,
+          data:
+            {
+              pose: { position: [ 7.5, -10, 1.5 ], orientation: [ 0, 0, 0.7071068, 0.7071068 ] },
+              size: [ 0.2, 5, 3 ]
+            }
+        },
+      {
+          type: box,
+          data:
+            {
+              pose: { position: [ -7.5, -10, 1.5 ], orientation: [ 0, 0, 0.7071068, 0.7071068 ] },
+              size: [ 0.2, 5, 3 ]
+            }
+        }
+    ]
+}

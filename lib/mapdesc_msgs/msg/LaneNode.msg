@@ -1,0 +1,3 @@
+string name
+geometry_msgs/Vector3 position
+diagnostic_msgs/KeyValue params
