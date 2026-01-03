@@ -1,0 +1,54 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='{{ map.name }}'>
+    <pose>0 0 0 0 0 0</pose>
+    {% for wall in map.walls %}
+    <link name='{% if wall.name %}{{ wall.name }}{% else %}Wall_{{ loop.index }}{% endif %}'>
+      <collision name='{% if wall.name %}{{ wall.name }}{% else %}Wall_{{ loop.index }}{% endif %}_Collision'>
+        <geometry>
+          {% if wall.type == 'box' -%}
+          <box>
+            <size>{{ wall.size.width }} {{ wall.size.length }} {{ wall.size.height }}</size>
+          </box>
+          {%- elif wall.type in ['polyline', 'mesh'] -%}
+          <polyline>
+            {% for point in wall.points -%}
+            <point>{{ point.x }} {{ point.y }}</point>
+            {% endfor -%}
+          </polyline>
+          {% endif %}
+        </geometry>
+        <pose>0 0 {{ wall.size.height / 2 }} 0 0 0</pose>
+      </collision>
+      <visual name='{% if wall.name %}{{ wall.name }}{% else %}Wall_{{ loop.index }}{% endif %}_Visual'>
+        <geometry>
+          {% if wall.type == 'box' -%}
+          <box>
+            <size>{{ wall.size.width }} {{ wall.size.length }} {{ wall.size.height }}</size>
+          </box>
+          {%- elif wall.type == 'polyline' -%}
+          <polyline>
+            {% for point in wall.points -%}
+            <point>{{ point.x }} {{ point.y }}</point>
+            {% endfor -%}
+          </polyline>
+          {% endif %}
+        </geometry>
+        <pose>0 0 {{ wall.size.height / 2 }} 0 0 0</pose>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <pose>{{ wall.pose.position.x }} {{ wall.pose.position.y }} {{ wall.pose.position.z }} {{ wall.pose.euler_orientation().x }} {{ wall.pose.euler_orientation().y }} {{ wall.pose.euler_orientation().z }}</pose>
+    </link>
+    {% endfor %}
+    <static>1</static>
+  </model>
+</sdf>

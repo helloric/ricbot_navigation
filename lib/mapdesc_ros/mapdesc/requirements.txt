@@ -1,0 +1,6 @@
+argcomplete
+pyyaml
+jinja2
+imutils
+numpy>=1.24
+OSMPythonTools

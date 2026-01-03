@@ -1,0 +1,469 @@
+area:
+- area_type: storage
+  color: [100, 255, 100]
+  data:
+    polygons:
+    - [-34.375, 0.0]
+    - [-15.625, 0.0]
+    - [-15.625, 12.5]
+    - [-34.375, 12.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+- area_type: storage
+  color: [100, 255, 100]
+  data:
+    polygons:
+    - [-34.375, -12.5]
+    - [-15.625, -12.5]
+    - [-15.625, 0.0]
+    - [-34.375, 0.0]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+- area_type: storage
+  color: [100, 255, 100]
+  data:
+    polygons:
+    - [15.625, -12.5]
+    - [34.375, -12.5]
+    - [34.375, 12.5]
+    - [15.625, 12.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+- area_type: assembly
+  color: [100, 100, 255]
+  data:
+    polygons:
+    - [2.5, 2.5]
+    - [10.0, 2.5]
+    - [10.0, 10.0]
+    - [2.5, 10.0]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+- area_type: assembly
+  color: [100, 100, 255]
+  data:
+    polygons:
+    - [-10.0, 2.5]
+    - [-2.5, 2.5]
+    - [-2.5, 10.0]
+    - [-10.0, 10.0]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+- area_type: assembly
+  color: [100, 100, 255]
+  data:
+    polygons:
+    - [-10.0, -10.0]
+    - [-2.5, -10.0]
+    - [-2.5, -2.5]
+    - [-10.0, -2.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+- area_type: assembly
+  color: [100, 100, 255]
+  data:
+    polygons:
+    - [2.5, -10.0]
+    - [10.0, -10.0]
+    - [10.0, -2.5]
+    - [2.5, -2.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+description: Some map.
+lane_graph:
+  edges:
+  - {edge_type: 1, source: 0, target: 20}
+  - {edge_type: 1, source: 0, target: 4}
+  - {edge_type: 1, source: 0, target: 15}
+  - {edge_type: 1, source: 0, target: 3}
+  - {edge_type: 1, source: 0, target: 2}
+  - {edge_type: 1, source: 0, target: 1}
+  - {edge_type: 1, source: 1, target: 8}
+  - {edge_type: 1, source: 1, target: 18}
+  - {edge_type: 1, source: 1, target: 0}
+  - {edge_type: 1, source: 1, target: 5}
+  - {edge_type: 1, source: 1, target: 13}
+  - {edge_type: 1, source: 2, target: 0}
+  - {edge_type: 1, source: 2, target: 5}
+  - {edge_type: 1, source: 2, target: 6}
+  - {edge_type: 1, source: 2, target: 20}
+  - {edge_type: 1, source: 3, target: 0}
+  - {edge_type: 1, source: 3, target: 7}
+  - {edge_type: 1, source: 3, target: 22}
+  - {edge_type: 1, source: 3, target: 6}
+  - {edge_type: 1, source: 3, target: 17}
+  - {edge_type: 1, source: 4, target: 0}
+  - {edge_type: 1, source: 4, target: 8}
+  - {edge_type: 1, source: 4, target: 15}
+  - {edge_type: 1, source: 4, target: 7}
+  - {edge_type: 1, source: 5, target: 18}
+  - {edge_type: 1, source: 5, target: 2}
+  - {edge_type: 1, source: 5, target: 1}
+  - {edge_type: 1, source: 5, target: 9}
+  - {edge_type: 1, source: 6, target: 22}
+  - {edge_type: 1, source: 6, target: 3}
+  - {edge_type: 1, source: 6, target: 2}
+  - {edge_type: 1, source: 6, target: 10}
+  - {edge_type: 1, source: 7, target: 3}
+  - {edge_type: 1, source: 7, target: 4}
+  - {edge_type: 1, source: 7, target: 12}
+  - {edge_type: 1, source: 7, target: 17}
+  - {edge_type: 1, source: 8, target: 4}
+  - {edge_type: 1, source: 8, target: 11}
+  - {edge_type: 1, source: 8, target: 13}
+  - {edge_type: 1, source: 8, target: 1}
+  - {edge_type: 1, source: 9, target: 5}
+  - {edge_type: 1, source: 10, target: 6}
+  - {edge_type: 1, source: 11, target: 8}
+  - {edge_type: 1, source: 11, target: 12}
+  - {edge_type: 1, source: 12, target: 11}
+  - {edge_type: 1, source: 12, target: 7}
+  - {edge_type: 1, source: 13, target: 8}
+  - {edge_type: 1, source: 13, target: 14}
+  - {edge_type: 1, source: 13, target: 1}
+  - {edge_type: 1, source: 14, target: 15}
+  - {edge_type: 1, source: 14, target: 13}
+  - {edge_type: 1, source: 15, target: 0}
+  - {edge_type: 1, source: 15, target: 4}
+  - {edge_type: 1, source: 15, target: 14}
+  - {edge_type: 1, source: 15, target: 16}
+  - {edge_type: 1, source: 16, target: 15}
+  - {edge_type: 1, source: 16, target: 17}
+  - {edge_type: 1, source: 17, target: 3}
+  - {edge_type: 1, source: 17, target: 16}
+  - {edge_type: 1, source: 17, target: 7}
+  - {edge_type: 1, source: 18, target: 5}
+  - {edge_type: 1, source: 18, target: 19}
+  - {edge_type: 1, source: 18, target: 1}
+  - {edge_type: 1, source: 19, target: 20}
+  - {edge_type: 1, source: 19, target: 18}
+  - {edge_type: 1, source: 20, target: 0}
+  - {edge_type: 1, source: 20, target: 19}
+  - {edge_type: 1, source: 20, target: 2}
+  - {edge_type: 1, source: 20, target: 21}
+  - {edge_type: 1, source: 21, target: 22}
+  - {edge_type: 1, source: 21, target: 20}
+  - {edge_type: 1, source: 22, target: 3}
+  - {edge_type: 1, source: 22, target: 6}
+  - {edge_type: 1, source: 22, target: 21}
+  nodes:
+  - name: node_1
+    position: {x: 0.0, y: 0.0}
+  - name: node_2
+    position: {x: 0.0, y: 11.25}
+  - name: node_3
+    position: {x: -12.5, y: 0.0}
+  - name: node_4
+    position: {x: 0.0, y: -11.25}
+  - name: node_5
+    position: {x: 12.5, y: 0.0}
+  - name: node_6
+    position: {x: -12.5, y: 11.25}
+  - name: node_7
+    position: {x: -12.5, y: -11.25}
+  - name: node_8
+    position: {x: 12.5, y: -11.25}
+  - name: node_9
+    position: {x: 12.5, y: 11.25}
+  - name: node_10
+    position: {x: -25.0, y: 6.25}
+  - name: node_11
+    position: {x: -25.0, y: -6.25}
+  - name: node_12
+    position: {x: 25.0, y: 6.25}
+  - name: node_13
+    position: {x: 25.0, y: -6.25}
+  - name: node_14
+    position: {x: 6.25, y: 11.25}
+  - name: node_15
+    position: {x: 6.25, y: 6.25}
+  - name: node_16
+    position: {x: 6.25, y: 0.0}
+  - name: node_17
+    position: {x: 6.25, y: -6.25}
+  - name: node_18
+    position: {x: 6.25, y: -11.25}
+  - name: node_19
+    position: {x: -6.25, y: 11.25}
+  - name: node_20
+    position: {x: -6.25, y: 6.25}
+  - name: node_21
+    position: {x: -6.25, y: 0.0}
+  - name: node_22
+    position: {x: -6.25, y: -6.25}
+  - name: node_23
+    position: {x: -6.25, y: -11.25}
+marker:
+- color: [0, 0, 255]
+  name: actor_1
+  params: {actor_type: wing_spawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-29.6875, 3.125]
+- color: [0, 0, 255]
+  name: actor_2
+  params: {actor_type: wing_spawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-29.6875, 6.25]
+- color: [0, 0, 255]
+  name: actor_3
+  params: {actor_type: wing_spawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-29.6875, 9.375]
+- color: [0, 0, 255]
+  name: actor_4
+  params: {actor_type: movable_spawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-29.6875, -9.375]
+- color: [0, 0, 255]
+  name: actor_5
+  params: {actor_type: movable_spawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-29.6875, -6.25]
+- color: [0, 0, 255]
+  name: actor_6
+  params: {actor_type: movable_spawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-29.6875, -3.125]
+- color: [0, 0, 255]
+  name: actor_7
+  params: {actor_type: despawn, type: actor}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [29.6875, 0.0]
+- color: [255, 50, 50]
+  name: agent_1
+  params: {agent_type: mir_100, type: agent_spawn}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [0.0, 0.0]
+- color: [255, 50, 50]
+  name: agent_2
+  params: {agent_type: mir_100, type: agent_spawn}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-1.25, 0.0]
+- color: [255, 50, 50]
+  name: actor_3
+  params: {agent_type: generic_arm, type: agent_spawn}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [8.125, 6.25]
+- color: [255, 50, 50]
+  name: actor_4
+  params: {agent_type: generic_arm, type: agent_spawn}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-8.125, 6.25]
+- color: [255, 50, 50]
+  name: actor_5
+  params: {agent_type: generic_arm, type: agent_spawn}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [-8.125, -6.25]
+- color: [255, 50, 50]
+  name: actor_6
+  params: {agent_type: generic_arm, type: agent_spawn}
+  pose:
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    position: [8.125, -6.25]
+name: some_graph
+origin:
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  position: [0.0, 0.0, 0.0]
+resolution: 0.05
+wall:
+- data:
+    polygons:
+    - [2.375, 2.375]
+    - [5.125, 2.375]
+    - [5.125, 2.6250000000000004]
+    - [2.6250000000000004, 2.6250000000000004]
+    - [2.6250000000000004, 9.875]
+    - [5.125, 9.875]
+    - [5.125, 10.125]
+    - [2.375, 10.125]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [7.375, 2.375]
+    - [10.125, 2.375]
+    - [10.125, 10.125]
+    - [7.375, 10.125]
+    - [7.375, 9.875]
+    - [9.874999999999998, 9.875]
+    - [9.874999999999998, 2.6250000000000004]
+    - [7.375, 2.6250000000000004]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-10.125, 2.375]
+    - [-7.375, 2.375]
+    - [-7.375, 2.6250000000000004]
+    - [-9.874999999999998, 2.6250000000000004]
+    - [-9.874999999999998, 9.875]
+    - [-7.375, 9.875]
+    - [-7.375, 10.125]
+    - [-10.125, 10.125]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-5.125, 2.375]
+    - [-2.375, 2.375]
+    - [-2.375, 10.125]
+    - [-5.125, 10.125]
+    - [-5.125, 9.875]
+    - [-2.6250000000000004, 9.875]
+    - [-2.6250000000000004, 2.6250000000000004]
+    - [-5.125, 2.6250000000000004]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-10.125, -10.125]
+    - [-7.375, -10.125]
+    - [-7.375, -9.875]
+    - [-9.874999999999998, -9.875]
+    - [-9.874999999999998, -2.6250000000000004]
+    - [-7.375, -2.6250000000000004]
+    - [-7.375, -2.375]
+    - [-10.125, -2.375]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-5.125, -10.125]
+    - [-2.375, -10.125]
+    - [-2.375, -2.375]
+    - [-5.125, -2.375]
+    - [-5.125, -2.6250000000000004]
+    - [-2.6250000000000004, -2.6250000000000004]
+    - [-2.6250000000000004, -9.875]
+    - [-5.125, -9.875]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [2.375, -10.125]
+    - [5.125, -10.125]
+    - [5.125, -9.875]
+    - [2.6250000000000004, -9.875]
+    - [2.6250000000000004, -2.6250000000000004]
+    - [5.125, -2.6250000000000004]
+    - [5.125, -2.375]
+    - [2.375, -2.375]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [7.375, -10.125]
+    - [10.125, -10.125]
+    - [10.125, -2.375]
+    - [7.375, -2.375]
+    - [7.375, -2.6250000000000004]
+    - [9.874999999999998, -2.6250000000000004]
+    - [9.874999999999998, -9.875]
+    - [7.375, -9.875]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-34.375, 12.375]
+    - [34.375, 12.375]
+    - [34.375, 12.625]
+    - [-34.375, 12.625]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-34.375, -12.625]
+    - [34.375, -12.625]
+    - [34.375, -12.375]
+    - [-34.375, -12.375]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [34.25, -12.5]
+    - [34.5, -12.5]
+    - [34.5, 12.5]
+    - [34.25, 12.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-34.5, -12.5]
+    - [-34.25, -12.5]
+    - [-34.25, 12.5]
+    - [-34.5, 12.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-34.375, -0.125]
+    - [-15.625, -0.125]
+    - [-15.625, 0.125]
+    - [-34.375, 0.125]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [-15.75, -7.5]
+    - [-15.5, -7.5]
+    - [-15.5, 7.5]
+    - [-15.75, 7.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh
+- data:
+    polygons:
+    - [15.5, -7.5]
+    - [15.75, -7.5]
+    - [15.75, 7.5]
+    - [15.5, 7.5]
+    pose:
+      orientation: [0.0, 0.0, 0.0, 1.0]
+      position: [0.0, 0.0, 0.0]
+  type: mesh

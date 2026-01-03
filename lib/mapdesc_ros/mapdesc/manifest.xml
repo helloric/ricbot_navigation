@@ -1,0 +1,38 @@
+<package>
+    <name>MapDesc</name>
+    <description brief="convert maps from image or formal description to simulation or navigation and back">
+        **Map Desc**ription System for Robotics - generate and exports walls and other static objects from different sources to import into robotic simulations or as base for autonomous navigation. Can generate environments for navigation simulations (e.g. navsim-2d or Gazebo) from a given image as map using OpenCV or a map from a web-based editor. The map can also be exported into an image or yaml as input for the editor.
+    </description>
+    <author>Andreas Bresser/andreas.bresser@dfki.de</author>
+    <maintainer>Andreas Bresser/andreas.bresser@dfki.de</maintainer>
+    <!-- Use the short version name from: https://spdx.org/licenses/ -->
+    <license>BSD-3-Clause</license>
+    <url>https://git.hb.dfki.de/phanes/mapdesc/</url>
+  
+  
+    <keywords>
+      <keyword>utilities</keyword> <!--kw1 currently used as Category in Software Catalog -->
+      <keyword>ROS1</keyword>
+      <keyword>ROS2</keyword>
+      <keyword>mapping</keyword>
+      <keyword>navigation</keyword>
+    </keywords>
+  
+    <stage>0</stage>
+    <use>single project</use>
+    <!-- <use>multi project</use> -->
+    <!-- <use>external</use> -->
+    <activity>active</activity>
+    <!-- <activity>pending</activity> -->
+    <!-- <activity>discontinued</activity> -->
+    <classifiers> <!--optional -->
+      <!-- The idea of "classifiers" is to provide additional meta data about the software,
+           for example, which programming language has been used, what is the target platform,
+           is it compatible with any robotic middleware. The idea is similar to classifiers
+           in the Python package index (https://packaging.python.org/tutorials/distributing-packages/#classifiers)
+           but we don't have a predefined list of allowed classifiers. -->
+      <classifier>python</classifier>
+      <classifier>ros</classifier>
+      <classifier>Development Status :: 3 - Alpha</classifier>
+    </classifiers>
+  </package>

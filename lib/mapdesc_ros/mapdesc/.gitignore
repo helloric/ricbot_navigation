@@ -1,0 +1,17 @@
+# python cache / pip
+*.egg-info/
+__pycache__/
+*.pyc
+build/
+
+# py.test
+.pytest_cache/
+
+# test coverage
+.coverage
+htmlcov/
+
+# cli test script
+/generated/*
+# OSM cache
+cache/

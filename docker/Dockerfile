@@ -19,8 +19,7 @@ COPY ./docker/entrypoint.bash /entrypoint.bash
 RUN chmod +x /entrypoint.bash
 ENTRYPOINT ["/entrypoint.bash"]
 
-COPY ./ricbot_navigation ${COLCON_WS_SRC}/ricbot_navigation
-COPY ./lib/mapdesc_msgs ${COLCON_WS_SRC}/mapdesc_msgs
+COPY ./ ${COLCON_WS_SRC}/ricbot_navigation
 COPY ./lib/mapdesc_ros ${COLCON_WS_SRC}/mapdesc_ros
 
 
